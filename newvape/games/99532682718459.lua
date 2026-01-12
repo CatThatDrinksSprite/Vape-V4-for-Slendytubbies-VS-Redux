@@ -25,7 +25,7 @@ local KillauraTargets
 local KillauraAttackRange
 local KillauraMax
 
-Killaura = vape.Categories.Combat:CreateModule({
+Killaura = vape.Categories.Blatant:CreateModule({
     Name = 'Killaura',
     Function = function(callback)
         repeat
