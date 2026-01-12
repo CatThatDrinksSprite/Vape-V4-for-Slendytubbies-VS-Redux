@@ -17,7 +17,7 @@
 
 1. **Run the Vape V4 Script in-game to make sure you have the workspace folder**
    ```lua
-      loadstring(game:HttpGet('https://github.com/7GrandDadPGN/VapeV4ForRoblox/raw/main/NewMainScript.lua', true))()
+   loadstring(game:HttpGet('https://github.com/7GrandDadPGN/VapeV4ForRoblox/raw/main/NewMainScript.lua', true))()
    ```
 
 2. **Going to the 'newvape' games Folder**
@@ -38,13 +38,13 @@
 
 1. **Run the Automatic Installer**
    ```lua
-      if not isfolder('newvape') then
-         makefolder('newvape')
-      end
-      if not isfolder('newvape/games') then
-         makefolder('newvape/games')
-      end
-      writefile('newvape/games/99532682718459.lua', game:HttpGet('https://github.com/CatThatDrinksSprite/Vape-V4-for-Slendytubbies-VS-Redux/raw/main/newvape/games/99532682718459.lua', true))
+   if not isfolder('newvape') then
+      makefolder('newvape')
+   end
+   if not isfolder('newvape/games') then
+      makefolder('newvape/games')
+   end
+   writefile('newvape/games/99532682718459.lua', game:HttpGet('https://github.com/CatThatDrinksSprite/Vape-V4-for-Slendytubbies-VS-Redux/raw/main/newvape/games/99532682718459.lua', true))
    ```
 
 2. **Rejoining**
