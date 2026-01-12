@@ -10,7 +10,7 @@
 
 ## 📦 Installation
 
-### Volt (Windows)
+### Volt (Manual)
 
 <details>
 <summary><b>Step-by-step guide</b> (Click to expand)</summary>
