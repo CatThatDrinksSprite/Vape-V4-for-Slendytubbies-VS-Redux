@@ -5,7 +5,7 @@ local AttackRange
 Killaura = vape.Categories.Combat:CreateModule({
     Name = "Killaura",
     Function = function(callback)
-        repeat wait(0.5)
+        repeat wait()
             spawn(function()
                 for _, Player in ipairs(game:GetService("Players"):GetPlayers()) do
                     if Player.Character and Player.Character:GetAttribute("Player") and game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character:GetAttribute("monsterType") and (Player.Character:WaitForChild("HumanoidRootPart").Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude <= AttackRange.Value then
