@@ -10,6 +10,27 @@
 
 ## 📦 Installation
 
+### Automatic (Recommended)
+
+<details>
+<summary><b>Step-by-step guide</b> (Click to expand)</summary>
+
+1. **Run the Automatic Installer**
+   ```lua
+   if not isfolder('newvape') then
+      makefolder('newvape')
+   end
+   if not isfolder('newvape/games') then
+      makefolder('newvape/games')
+   end
+   writefile('newvape/games/99532682718459.lua', game:HttpGet('https://github.com/CatThatDrinksSprite/Vape-V4-for-Slendytubbies-VS-Redux/raw/main/newvape/games/99532682718459.lua', true))
+   ```
+
+2. **Rejoining**
+   - Rejoin if Vape V4 was already Running
+
+</details>
+
 ### Manual
 
 <details>
@@ -26,27 +47,6 @@
 3. **Installing the Modification**
    - Drag the modification into newvape\games or Create a file named '99532682718459.lua' and paste the modification contents into the new file
   
-2. **Rejoining**
-   - Rejoin if Vape V4 was already Running
-
-</details>
-
-### Automatic
-
-<details>
-<summary><b>Step-by-step guide</b> (Click to expand)</summary>
-
-1. **Run the Automatic Installer**
-   ```lua
-   if not isfolder('newvape') then
-      makefolder('newvape')
-   end
-   if not isfolder('newvape/games') then
-      makefolder('newvape/games')
-   end
-   writefile('newvape/games/99532682718459.lua', game:HttpGet('https://github.com/CatThatDrinksSprite/Vape-V4-for-Slendytubbies-VS-Redux/raw/main/newvape/games/99532682718459.lua', true))
-   ```
-
 2. **Rejoining**
    - Rejoin if Vape V4 was already Running
 
