@@ -21,8 +21,6 @@
    ```
 
 2. **Going to the 'newvape' games Folder**
-   - Hold Win + R (Run will open)
-   - In Open type '%localappdata%' then click OK
    - Locate your executor and goto workspace\newvape\games
   
 3. **Installing the Modification**
