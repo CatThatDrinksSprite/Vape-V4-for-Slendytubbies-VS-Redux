@@ -8,6 +8,18 @@
 
 ---
 
+## ✨ Features
+
+<div align='center'>
+
+| Feature | Description |
+|---------|-------------|
+| ⚔️ **Killaura** | Attacks every Guardian near You |
+
+</div>
+
+More will be added in the future
+
 ## 📦 Installation
 
 ### Automatic (Recommended)
