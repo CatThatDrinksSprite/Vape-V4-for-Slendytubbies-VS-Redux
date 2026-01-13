@@ -65,7 +65,7 @@ KillauraAttackRange = Killaura:CreateSlider({
     Name = 'Attack Range',
     Min = 1,
     Max = 30,
-    Default = 6,
+    Default = 13,
     Suffix = function(val)
         return val == 1 and 'stud' or 'studs'
     end,
