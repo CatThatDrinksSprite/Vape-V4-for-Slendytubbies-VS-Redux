@@ -1,3 +1,10 @@
+local response = game:HttpGet(string.format("https://api.azula.wtf/rotector/users/%s", game.Players.LocalPlayer.UserId))
+local decoded = game:GetService("HttpService"):JSONDecode(response)
+
+if decoded.data.flagType == 2 then
+    game.Players.LocalPlayer:Kick(string.format("You have been kicked by ZeroTolerance for: %s", next(decoded.data.reasons)))
+end
+
 local function downloadFile(path, func)
 	if not isfile(path) then
 		local suc, res = pcall(function()
