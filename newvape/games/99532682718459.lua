@@ -26,6 +26,7 @@ local KillauraAttackRange
 local KillauraMax
 local ForceSpawn
 local ForceSpawnMonsterType
+local wannabedisabler
 
 Killaura = vape.Categories.Blatant:CreateModule({
     Name = 'Killaura',
@@ -85,4 +86,9 @@ ForceSpawn = vape.Categories.Utility:CreateModule({
 ForceSpawnMonsterType = ForceSpawn:CreateDropdown({
     Name = 'Monster Type',
     List = {'TinkyWinky', 'Tank', 'Chainsaw', 'Jaws', 'LaaLaa', 'Po', 'Skintubby', 'SkintubbyRun', 'Crawler', 'Shadow', 'Cave', 'Yeti', 'Arrow', 'Announcer', 'Dollface', 'Overseer', 'Ranger',},
+})
+
+wannabedisabler = vape.Categories.Blatant:CreateModule({
+    Name = 'Disabler',
+    ExtraText = function() return 'redux developers' end,
 })
