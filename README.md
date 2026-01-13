@@ -18,7 +18,7 @@
 
 </div>
 
-More will be added in the future
+More features will be added in the future as the mod is in beta, Also expect bugs
 
 ## 📦 Installation
 
