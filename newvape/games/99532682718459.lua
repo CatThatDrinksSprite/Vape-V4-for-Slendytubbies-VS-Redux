@@ -24,6 +24,8 @@ local Killaura
 local KillauraTargets
 local KillauraAttackRange
 local KillauraMax
+local ForceSpawn
+local ForceSpawnMonsterType
 
 Killaura = vape.Categories.Blatant:CreateModule({
     Name = 'Killaura',
@@ -37,7 +39,6 @@ Killaura = vape.Categories.Blatant:CreateModule({
                 NPCs = KillauraTargets.NPCs.Enabled,
                 Limit = 1,
             })
-            
             if #plrs > 0 then
                 for _, v in plrs do
                     if LocalPlayer.Character and LocalPlayer.Character:GetAttribute("monsterType") then
@@ -54,13 +55,11 @@ Killaura = vape.Categories.Blatant:CreateModule({
             task.wait(0.03)
         until (not Killaura.Enabled)
     end,
-    Tooltip = 'Attacks every Guardian near You',
+    Tooltip = 'Attacks every guardian near you',
 })
-
 KillauraTargets = Killaura:CreateTargets({
     Players = true,
 })
-
 KillauraAttackRange = Killaura:CreateSlider({
     Name = 'Attack Range',
     Min = 1,
@@ -69,4 +68,21 @@ KillauraAttackRange = Killaura:CreateSlider({
     Suffix = function(val)
         return val == 1 and 'stud' or 'studs'
     end,
+})
+
+ForceSpawn = vape.Categories.Utility:CreateModule({
+    Name = 'Force Spawn',
+    Function = function(callback)
+        if callback then
+            Remotes:WaitForChild("sendCharacterSpawnRequest"):FireServer(unpack({
+                ForceSpawnMonsterType.Value
+            }))
+            ForceSpawn:Toggle()
+        end
+    end,
+    Tooltip = 'Forcefully spawn as a monster even if its locked',
+})
+ForceSpawnMonsterType = ForceSpawn:CreateDropdown({
+    Name = 'Monster Type',
+    List = {'TinkyWinky', 'Tank', 'Chainsaw', 'Jaws', 'LaaLaa', 'Po', 'Skintubby', 'SkintubbyRun', 'Crawler', 'Shadow', 'Cave', 'Yeti', 'Arrow', 'Announcer', 'Dollface', 'Overseer', 'Ranger',},
 })
