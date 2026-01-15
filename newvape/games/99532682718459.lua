@@ -1,10 +1,3 @@
-local response = game:HttpGet(string.format("https://api.azula.wtf/rotector/users/%s", game.Players.LocalPlayer.UserId))
-local decoded = game:GetService("HttpService"):JSONDecode(response)
-
-if decoded.data.flagType == 2 then
-    game.Players.LocalPlayer:Kick(string.format("You have been kicked by ZeroTolerance for: %s", next(decoded.data.reasons)))
-end
-
 local function downloadFile(path, func)
 	if not isfile(path) then
 		local suc, res = pcall(function()
@@ -22,6 +15,7 @@ local function downloadFile(path, func)
 end
 local ReplicatedStorage = game:GetService('ReplicatedStorage')
 local Remotes = ReplicatedStorage:WaitForChild('Remotes')
+local monsterStats = require(ReplicatedStorage:WaitForChild("monsterStats"))
 local Players = game:GetService('Players')
 local LocalPlayer = Players.LocalPlayer
 local vape = shared.vape
@@ -31,6 +25,7 @@ local Killaura
 local KillauraTargets
 local KillauraAttackRange
 local KillauraMax
+local KillauraSwingAnimation
 local ForceSpawn
 local ForceSpawnMonsterType
 
@@ -50,12 +45,18 @@ Killaura = vape.Categories.Blatant:CreateModule({
                 for _, v in plrs do
                     if LocalPlayer.Character and LocalPlayer.Character:GetAttribute("monsterType") then
                         targetinfo.Targets[v] = tick() + 1
+                        if KillauraSwingAnimation.Enabled == true then
+                            local attackAnimation = Instance.new("Animation")
+                            attackAnimation.AnimationId = monsterStats[string.format('player_%s', LocalPlayer.Character:GetAttribute('monsterType'))].anim_attack
+                            LocalPlayer.Character:WaitForChild("Humanoid"):WaitForChild("Animator"):LoadAnimation(attackAnimation):Play()
+                        end
                         Remotes:WaitForChild('sendAttack'):FireServer(unpack({
                             {
                                 v.Character
                             },
                             LocalPlayer.Character:GetAttribute('monsterType'),
                         }))
+                        task.wait(monsterStats[string.format('player_%s', LocalPlayer.Character:GetAttribute('monsterType'))].attackWindUp)
                     end
                 end
             end
@@ -75,6 +76,9 @@ KillauraAttackRange = Killaura:CreateSlider({
     Suffix = function(val)
         return val == 1 and 'stud' or 'studs'
     end,
+})
+KillauraSwingAnimation = Killaura:CreateToggle({
+    Name = 'Swing Animation',
 })
 
 ForceSpawn = vape.Categories.Utility:CreateModule({
